@@ -158,11 +158,11 @@
             align-items: center;
         }
         
-        /* Slightly increased logo size */
+        /* Adjusted Logo Size for Perfect Balance */
         .hero-logo {
-            height: 135px; 
+            height: 100px; 
             width: auto;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
             animation: breathe 4s infinite alternate;
         }
 
@@ -401,6 +401,8 @@
             box-shadow: 0 10px 20px rgba(0, 210, 255, 0.4);
             background: var(--primary-cyan);
         }
+
+        /* --- PDF BUTTON --- */
         .action-btn {
             display: inline-flex;
             align-items: center;
@@ -412,12 +414,14 @@
             font-weight: bold;
             border-radius: 30px;
             margin-top: 20px;
+            margin-bottom: 20px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .action-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 210, 255, 0.4);
         }
+
         footer {
             text-align: center;
             padding: 40px;
@@ -445,13 +449,14 @@
         <div class="nav-links">
             <a href="#vision">The Vision</a>
             <a href="#architecture">Architectures</a>
+            <a href="#demo">Demo Video</a>
             <a href="#contact">Founder & Contact</a>
         </div>
     </nav>
 
     <!-- HEADER / HERO -->
     <header id="home">
-        <!-- Enlarged, gently breathing logo -->
+        <!-- Re-sized logo to fit perfectly with the brand name -->
         <img src="ChatGPT Image Aug 3, 2026, 05_53_14 AM.png" alt="NeuroTej AI Logo" class="hero-logo" onerror="this.style.display='none'">
         <h1>NeuroTej AI</h1>
         <p>A Privacy-Preserving Edge Intelligence Platform for Real-Time Behavioral Analytics Across Educational, Examination, and Professional Assessment Environments.</p>
@@ -536,6 +541,22 @@
             </div>
         </section>
 
+        <div style="height: 40px;"></div>
+
+        <!-- PLATFORM DEMO VIDEO -->
+        <section id="demo">
+            <h2 class="section-title">Platform <span>Demo</span></h2>
+            <div class="glass-panel" style="max-width: 900px; margin: 0 auto; text-align: center;">
+                <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 1.15rem;">Watch how NeuroTej AI transforms raw visual data into actionable intelligence in real-time.</p>
+                <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);">
+                    <!-- 🚨 REPLACE 'YOUR_YOUTUBE_VIDEO_ID' BELOW WITH YOUR ACTUAL VIDEO ID 🚨 -->
+                    <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://youtu.be/HCf7FQypg_M?si=OF4OZ2rixS9yhB4D" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <div style="height: 80px;"></div>
+
         <!-- FOUNDER, CONTACT & SOCIALS -->
         <section id="contact">
             <h2 class="section-title">Connect With <span>Us</span></h2>
@@ -547,6 +568,7 @@
                 <p class="founder-bio">
                     I am the founder of NeuroTej AI, an Edge Intelligence startup focused on privacy-preserving behavioral analytics for educational institutions, examinations, and professional assessment environments. My vision is to build a global AI platform that helps institutions understand engagement, performance, and communication effectiveness without compromising user privacy.
                 </p>
+
                 <!-- Professional Emails -->
                 <div class="contact-grid">
                     <div class="contact-item">
@@ -562,19 +584,21 @@
                         <a href="mailto:contact@neurotej.com">contact@neurotej.com</a>
                     </div>
                 </div>
+
+                <!-- PDF Download Button -->
                 <a href="NeuroTej AI-1.pdf" target="_blank" class="action-btn">
                     <i class="fa-solid fa-file-pdf"></i> Read Full Business Overview
                 </a>
+
                 <!-- Animated Social Media App Logos -->
                 <div class="social-apps">
                     <a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="https://x.com/NeuroTejAi" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://x.com/NeuroTejAi" title="X"><i class="fa-brands fa-x-twitter"></i></a>
                     <a href="https://github.com/teja22645471/NeuroTej_Ai" title="GitHub"><i class="fa-brands fa-github"></i></a>
                     <a href="https://youtube.com/@neurotejai?si=OkRvYFwwxsRLjpK4" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
                     <a href="https://www.instagram.com/neurotejai?igsh=MWlrMDQ3cHlsYW96cA==" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
                     <a href="https://www.facebook.com/share/1G9CqVJM68/" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="https://www.reddit.com/u/NeuroTej/s/UH908dAhHp" title="Reddit"><i class="fa-brands fa-reddit-alien"></i></a>
-                    <a href="https://discord.gg/RgRWBH9RE" title="Discord"><i class="fa-brands fa-discord"></i></a>
                 </div>
             </div>
         </section>
