@@ -158,10 +158,11 @@
             align-items: center;
         }
         
+        /* Slightly increased logo size */
         .hero-logo {
-            height: 110px; /* Perfectly sized to fit with the text */
+            height: 135px; 
             width: auto;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             animation: breathe 4s infinite alternate;
         }
 
@@ -258,19 +259,20 @@
         }
 
         .architecture-card p.summary {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: var(--text-muted);
-            max-width: 800px;
-            margin-bottom: 25px;
+            max-width: 850px;
+            margin-bottom: 30px;
         }
 
         .smart-bullets {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             flex-wrap: wrap;
             list-style: none;
             padding: 0;
+            max-width: 950px;
         }
 
         .smart-bullets li {
@@ -433,7 +435,7 @@
 
     <!-- HEADER / HERO -->
     <header id="home">
-        <!-- Perfectly sized, gently breathing logo -->
+        <!-- Enlarged, gently breathing logo -->
         <img src="ChatGPT Image Aug 3, 2026, 05_53_14 AM.png" alt="NeuroTej AI Logo" class="hero-logo" onerror="this.style.display='none'">
         <h1>NeuroTej AI</h1>
         <p>A Privacy-Preserving Edge Intelligence Platform for Real-Time Behavioral Analytics Across Educational, Examination, and Professional Assessment Environments.</p>
@@ -476,11 +478,14 @@
             <div class="architecture-card glass-panel">
                 <img src="IMG_20260807_191034.png" alt="Smart Classroom Architecture">
                 <h3>1. Smart Classroom Analytics</h3>
-                <p class="summary">Delivers instant engagement tracking and instructor effectiveness metrics directly to educators without exposing student data to the cloud.</p>
+                <p class="summary">Delivers instant engagement tracking and instructor effectiveness metrics directly to educators. By continuously monitoring the classroom environment locally, the system provides deep insights into learning dynamics and student participation, completely eliminating the need to expose sensitive student data to the cloud.</p>
                 <ul class="smart-bullets">
                     <li><i class="fa-solid fa-shield-halved"></i> Privacy Preserved (Zero Cloud Video)</li>
                     <li><i class="fa-solid fa-bolt"></i> Real-Time Attention Scoring</li>
                     <li><i class="fa-solid fa-microchip"></i> Local Edge Processing</li>
+                    <li><i class="fa-solid fa-map-location-dot"></i> Instant Engagement Heatmaps</li>
+                    <li><i class="fa-solid fa-users-viewfinder"></i> Automated Attendance Tracking</li>
+                    <li><i class="fa-solid fa-chalkboard-user"></i> Instructor Effectiveness Metrics</li>
                 </ul>
             </div>
 
@@ -488,11 +493,14 @@
             <div class="architecture-card glass-panel">
                 <img src="IMG_20260807_191134.png" alt="Exam Guard Architecture">
                 <h3>2. Virtual Exam Intelligence</h3>
-                <p class="summary">Ensures absolute assessment integrity through high-precision tracking and behavioral risk analytics operating entirely on local hardware.</p>
+                <p class="summary">Ensures absolute assessment integrity through high-precision tracking and advanced behavioral risk analytics. The system operates autonomously on local hardware to monitor candidates in real-time, instantly identifying unauthorized materials or suspicious movements while fully protecting candidate privacy.</p>
                 <ul class="smart-bullets">
                     <li><i class="fa-solid fa-shield-halved"></i> Privacy Preserved (Secure Local Analysis)</li>
                     <li><i class="fa-solid fa-eye"></i> Precision Gaze Tracking</li>
                     <li><i class="fa-solid fa-check-double"></i> Automated Integrity Scoring</li>
+                    <li><i class="fa-solid fa-arrows-to-eye"></i> 360° Head Pose Estimation</li>
+                    <li><i class="fa-solid fa-mobile-screen-button"></i> Suspicious Object & Phone Detection</li>
+                    <li><i class="fa-solid fa-ear-listen"></i> Unusual Audio & Whisper Alerts</li>
                 </ul>
             </div>
 
@@ -500,11 +508,14 @@
             <div class="architecture-card glass-panel">
                 <img src="IMG_20260807_191108.png" alt="Interview Analysis Architecture">
                 <h3>3. Virtual Interview Intelligence</h3>
-                <p class="summary">Provides objective, data-driven hiring intelligence by evaluating candidate communication, sentiment, and confidence without human bias.</p>
+                <p class="summary">Provides objective, data-driven hiring intelligence by meticulously evaluating candidate communication, sentiment, and overall confidence. This multimodal analytical approach removes human bias from the recruitment process, ensuring candidates are graded fairly on their true behavioral and communicative competencies.</p>
                 <ul class="smart-bullets">
                     <li><i class="fa-solid fa-shield-halved"></i> Privacy Preserved (Secure Processing)</li>
                     <li><i class="fa-solid fa-face-smile"></i> Sentiment & Emotion Evaluation</li>
                     <li><i class="fa-solid fa-scale-balanced"></i> Unbiased Candidate Grading</li>
+                    <li><i class="fa-solid fa-microphone-lines"></i> Advanced Communication Analytics</li>
+                    <li><i class="fa-solid fa-wave-square"></i> Vocal Confidence & Pacing</li>
+                    <li><i class="fa-solid fa-user-magnifying-glass"></i> Behavioral & Micro-Expression Tracking</li>
                 </ul>
             </div>
         </section>
