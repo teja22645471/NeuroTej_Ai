@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeuroTej AI | Privacy-Preserving Edge Intelligence</title>
+    <title>NeuroTej AI | Edge Intelligence Platform</title>
     <style>
         body {
             margin: 0;
@@ -11,51 +11,161 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #0b0f19;
             color: #ffffff;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            line-height: 1.6;
+        }
+        header {
             text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(180deg, #1a233a 0%, #0b0f19 100%);
+        }
+        .logo {
+            max-width: 150px;
+            margin-bottom: 15px;
         }
         h1 {
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
+            margin: 0 0 10px 0;
         }
-        p {
-            font-size: 1.2rem;
+        .subtitle {
             color: #a0aec0;
+            font-size: 1.2rem;
             max-width: 800px;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            padding: 0 20px;
+            margin: 0 auto;
         }
-        .contact-info {
-            margin-top: 20px;
-            padding: 15px 30px;
-            background: rgba(255, 255, 255, 0.05);
+        section {
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        h2 {
+            color: #00d2ff;
+            border-bottom: 1px solid #2d3748;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .advantages-list {
+            list-style-type: square;
+            color: #e2e8f0;
+        }
+        .architecture-block {
+            background-color: #1a202c;
+            border: 1px solid #2d3748;
             border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
-        .contact-info p {
-            font-size: 1rem;
-            margin: 5px 0;
-            padding: 0;
-            color: #cbd5e0;
+        .architecture-img {
+            width: 40%;
+            border-radius: 4px;
+            border: 1px solid #4a5568;
+        }
+        .architecture-text {
+            width: 60%;
+        }
+        .architecture-text h3 {
+            margin-top: 0;
+            color: #9f7aea;
+        }
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: #000000;
+            color: #718096;
+            margin-top: 40px;
+        }
+        .contact-details a {
+            color: #00d2ff;
+            text-decoration: none;
+            margin: 0 10px;
         }
     </style>
 </head>
 <body>
-    <h1>NeuroTej AI</h1>
-    <p>A Privacy-Preserving Edge Intelligence Platform for Real-Time Behavioral Analytics Across Educational, Examination, and Professional Assessment Environments.</p>
-    
-    <div class="contact-info">
-        <p><strong>Website:</strong> neurotej.com</p>
-        <p><strong>Founder:</strong> founder@neurotej.com</p>
-        <p><strong>Business:</strong> info@neurotej.com</p>
-    </div>
+
+    <!-- Header Section -->
+    <header>
+        <img src="Neurotej ai without back.png" alt="NT Logo" class="logo">
+        <h1>NeuroTej AI</h1>
+        <p class="subtitle">A Privacy-Preserving Edge Intelligence Platform for Real-Time Behavioral Analytics Across Educational, Examination, and Professional Assessment Environments.</p>
+    </header>
+
+    <!-- Advantages Section -->
+    <section>
+        <h2>Advantages</h2>
+        <ul class="advantages-list">
+            <li>Low bandwidth consumption via edge processing.</li>
+            <li>Privacy preserved with zero raw video retention.</li>
+            <li>Real-time actionable insights and low latency.</li>
+            <li>Scalable ecosystem for diverse environments.</li>
+        </ul>
+    </section>
+
+    <!-- Architectures Section -->
+    <section>
+        <h2>Architectures</h2>
+
+        <!-- 1. Smart Classroom -->
+        <div class="architecture-block">
+            <img src="main architecture NeuroTej.png" alt="Smart Classroom Architecture" class="architecture-img">
+            <div class="architecture-text">
+                <h3>1. Smart Classroom</h3>
+                <p>Real-time computer vision at the edge delivers live attention scores, engagement trends, and learning effectiveness metrics directly to educators without exposing student data to the cloud.</p>
+            </div>
+        </div>
+
+        <!-- 2. Exam Guard -->
+        <div class="architecture-block">
+            <img src="exam guard architecture.png" alt="Exam Guard Architecture" class="architecture-img">
+            <div class="architecture-text">
+                <h3>2. ExamGuard</h3>
+                <p>Ensures assessment integrity through gaze tracking, head pose estimation, and suspicious behavior detection, operating entirely on local hardware to protect candidate privacy.</p>
+            </div>
+        </div>
+
+        <!-- 3. Interview Analysis -->
+        <div class="architecture-block">
+            <img src="interview analysis architecture.png" alt="Interview Analysis Architecture" class="architecture-img">
+            <div class="architecture-text">
+                <h3>3. Interview Analysis</h3>
+                <p>Evaluates candidate communication, sentiment, and performance characteristics to estimate the best fit for job roles, providing objective, data-driven hiring intelligence.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section>
+        <h2>Features</h2>
+        <ul class="advantages-list">
+            <li>Live, custom alerts for administrators and proctors.</li>
+            <li>Multi-modal analytics combining vision, speech, and emotion.</li>
+            <li>Centralized, role-based decision-support dashboards.</li>
+            <li>Automated attendance and integrity tracking.</li>
+        </ul>
+    </section>
+
+    <!-- Problems & Solutions Section -->
+    <section>
+        <h2>Problems & Solutions</h2>
+        <p><strong>The Problem:</strong> Heavy reliance on cloud infrastructure creates severe privacy risks, high bandwidth costs, and fragmented tools for monitoring virtual spaces.</p>
+        <p><strong>The Solution:</strong> A unified Privacy-by-Design architecture where raw video remains at the edge. Only encrypted analytical outputs are transmitted, dramatically reducing risks and costs.</p>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="contact-details">
+            <p><strong>Contact Details</strong></p>
+            <p>Website: <a href="https://www.neurotej.com">neurotej.com</a></p>
+            <p>Founder: <a href="mailto:founder@neurotej.com">founder@neurotej.com</a></p>
+            <p>Business: <a href="mailto:info@neurotej.com">info@neurotej.com</a></p>
+        </div>
+        <p class="copyright">&copy; 2026 NeuroTej AI. All Rights Reserved.</p>
+    </footer>
+
 </body>
 </html>
