@@ -3,86 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeuroTej AI | Edge Intelligence Platform</title>
+    <title>NeuroTej AI | Privacy-Preserving Edge Intelligence</title>
     <style>
+        :root {
+            --bg-color: #050810;
+            --card-bg: rgba(20, 25, 45, 0.6);
+            --primary-cyan: #00d2ff;
+            --primary-purple: #9f7aea;
+            --text-main: #ffffff;
+            --text-muted: #a0aec0;
+        }
+
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0b0f19;
-            color: #ffffff;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            background-image: radial-gradient(circle at 50% 0%, #1a233a 0%, transparent 50%);
+            color: var(--text-main);
             line-height: 1.6;
         }
+
+        /* Glassmorphism styling for all containers */
+        .glass-panel {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
         header {
             text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(180deg, #1a233a 0%, #0b0f19 100%);
+            padding: 80px 20px 60px;
         }
+
         .logo {
-            max-width: 150px;
-            margin-bottom: 15px;
+            max-width: 180px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.4));
         }
+
         h1 {
-            font-size: 2.5rem;
-            background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(90deg, var(--primary-cyan) 0%, var(--primary-purple) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin: 0 0 10px 0;
+            margin: 0 0 15px 0;
         }
+
         .subtitle {
-            color: #a0aec0;
-            font-size: 1.2rem;
+            color: var(--text-muted);
+            font-size: 1.25rem;
             max-width: 800px;
             margin: 0 auto;
+            font-weight: 300;
         }
-        section {
-            padding: 40px 20px;
-            max-width: 1000px;
+
+        .container {
+            max-width: 1100px;
             margin: 0 auto;
+            padding: 0 20px;
         }
+
+        section {
+            margin-bottom: 60px;
+        }
+
         h2 {
-            color: #00d2ff;
-            border-bottom: 1px solid #2d3748;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-        .advantages-list {
-            list-style-type: square;
-            color: #e2e8f0;
-        }
-        .architecture-block {
-            background-color: #1a202c;
-            border: 1px solid #2d3748;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 30px;
+            font-size: 2rem;
+            color: var(--text-main);
             display: flex;
             align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        h2::after {
+            content: "";
+            height: 2px;
+            flex-grow: 1;
+            background: linear-gradient(90deg, rgba(0, 210, 255, 0.3) 0%, transparent 100%);
+        }
+
+        /* Grid for Advantages & Features */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
         }
+
+        .feature-card {
+            padding: 25px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 210, 255, 0.3);
+        }
+
+        .feature-card h3 {
+            color: var(--primary-cyan);
+            margin-top: 0;
+            font-size: 1.2rem;
+        }
+
+        /* Architecture Blocks */
+        .architecture-block {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .architecture-block:hover {
+            transform: scale(1.01);
+            border-color: rgba(159, 122, 234, 0.3);
+        }
+
         .architecture-img {
             width: 50%;
-            border-radius: 4px;
-            border: 1px solid #4a5568;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
         }
+
         .architecture-text {
             width: 50%;
         }
+
         .architecture-text h3 {
+            font-size: 1.8rem;
             margin-top: 0;
-            color: #9f7aea;
+            background: linear-gradient(90deg, #ffffff 0%, var(--text-muted) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .architecture-block {
+                flex-direction: column;
+            }
+            .architecture-img, .architecture-text {
+                width: 100%;
+            }
+            h1 { font-size: 2.5rem; }
+        }
+
         footer {
             text-align: center;
-            padding: 30px 20px;
-            background-color: #000000;
-            color: #718096;
-            margin-top: 40px;
+            padding: 60px 20px;
+            margin-top: 80px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background: linear-gradient(0deg, #000000 0%, transparent 100%);
         }
-        .contact-details a {
-            color: #00d2ff;
+
+        .contact-links a {
+            color: var(--primary-cyan);
             text-decoration: none;
-            margin: 0 5px;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            color: var(--text-main);
+        }
+
+        .copyright {
+            color: #4a5568;
+            margin-top: 30px;
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -90,81 +188,94 @@
 
     <!-- Header Section -->
     <header>
-        <img src="Neurotej ai without back.png" alt="NT Logo" class="logo">
-        <h1>NeuroTej AI[cite: 1]</h1>
-        <p class="subtitle">A Privacy-Preserving Edge Intelligence Platform for Real-Time Behavioral Analytics Across Educational, Examination, and Professional Assessment Environments.[cite: 1]</p>
+        <img src="Neurotej ai without back.png" alt="NeuroTej AI Logo" class="logo" onerror="this.src='NeuroTej Ai.png'">
+        <h1>NeuroTej AI</h1>
+        <p class="subtitle">A Privacy-Preserving Edge Intelligence Platform for Real-Time Behavioral Analytics Across Educational, Examination, and Professional Assessment Environments.</p>
     </header>
 
-    <!-- Advantages Section -->
-    <section>
-        <h2>Advantages</h2>
-        <ul class="advantages-list">
-            <li>Significantly reduces bandwidth consumption.[cite: 1]</li>
-            <li>Enhances security and minimizes privacy risks.[cite: 1]</li>
-            <li>Improves deployment scalability.[cite: 1]</li>
-        </ul>
-    </section>
-
-    <!-- Architectures Section -->
-    <section>
-        <h2>Architectures</h2>
-
-        <!-- 1. Smart Classroom -->
-        <div class="architecture-block">
-            <img src="main architecture NeuroTej.png" alt="Smart Classroom Architecture" class="architecture-img">
-            <div class="architecture-text">
-                <h3>1. Smart Classroom</h3>
-                <p>Delivers real-time engagement tracking, participation analysis, attention scoring, and instructor effectiveness metrics.[cite: 1]</p>
+    <div class="container">
+        
+        <!-- Problems & Solutions Section -->
+        <section>
+            <h2>The Vision</h2>
+            <div class="grid-2">
+                <div class="feature-card glass-panel">
+                    <h3>The Problem</h3>
+                    <p>Existing solutions typically address challenges through fragmented tools that focus on isolated use cases. These systems often depend heavily on cloud infrastructure, create privacy concerns, and fail to provide unified decision intelligence.</p>
+                </div>
+                <div class="feature-card glass-panel">
+                    <h3>Our Solution</h3>
+                    <p>NeuroTej AI addresses these limitations through a comprehensive, privacy-first Edge Intelligence Framework capable of processing visual data locally while delivering real-time analytical insights to decision-makers.</p>
+                </div>
             </div>
-        </div>
+        </section>
 
-        <!-- 2. Exam Guard -->
-        <div class="architecture-block">
-            <img src="exam guard architecture.png" alt="Exam Guard Architecture" class="architecture-img">
-            <div class="architecture-text">
-                <h3>2. ExamGuard</h3>
-                <p>Provides remote proctoring, eye tracking, suspicious activity detection, behavioral risk analytics, and integrity scoring.[cite: 1]</p>
+        <!-- Architectures Section -->
+        <section>
+            <h2>System Architectures</h2>
+
+            <!-- 1. Smart Classroom -->
+            <div class="architecture-block glass-panel">
+                <img src="main architecture NeuroTej.png" alt="Smart Classroom Architecture" class="architecture-img">
+                <div class="architecture-text">
+                    <h3>1. Smart Classroom</h3>
+                    <p>Delivers real-time engagement tracking, participation analysis, attention scoring, and instructor effectiveness metrics directly to educators without exposing student data to the cloud.</p>
+                </div>
             </div>
-        </div>
 
-        <!-- 3. Interview Analysis -->
-        <div class="architecture-block">
-            <img src="interview analysis architecture.png" alt="Interview Analysis Architecture" class="architecture-img">
-            <div class="architecture-text">
-                <h3>3. Interview Analysis</h3>
-                <p>Offers communication analytics, confidence assessment, behavioral evaluation, and candidate performance reports.[cite: 1]</p>
+            <!-- 2. Exam Guard -->
+            <div class="architecture-block glass-panel">
+                <img src="exam guard architecture.png" alt="Exam Guard Architecture" class="architecture-img">
+                <div class="architecture-text">
+                    <h3>2. ExamGuard</h3>
+                    <p>Provides remote proctoring, eye tracking, suspicious activity detection, behavioral risk analytics, and integrity scoring, operating entirely on local hardware.</p>
+                </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Features Section -->
-    <section>
-        <h2>Features</h2>
-        <ul class="advantages-list">
-            <li><strong>Privacy First:</strong> Raw visual data is processed locally at the edge.[cite: 1]</li>
-            <li><strong>Edge Intelligence Architecture:</strong> AI workloads are executed on dedicated edge hardware.[cite: 1]</li>
-            <li><strong>Unified Behavioral Analytics:</strong> Multiple environments are analyzed through a common intelligence framework.[cite: 1]</li>
-            <li><strong>Explainable Intelligence:</strong> Focuses on generating interpretable insights.[cite: 1]</li>
-        </ul>
-    </section>
+            <!-- 3. Interview Analysis -->
+            <div class="architecture-block glass-panel">
+                <img src="interview analysis architecture.png" alt="Interview Analysis Architecture" class="architecture-img">
+                <div class="architecture-text">
+                    <h3>3. Interview Analysis</h3>
+                    <p>Offers communication analytics, confidence assessment, behavioral evaluation, and candidate performance reports for objective, data-driven hiring intelligence.</p>
+                </div>
+            </div>
+        </section>
 
-    <!-- Problems & Solutions Section -->
-    <section>
-        <h2>Problems & Solutions</h2>
-        <p><strong>The Problem:</strong> Existing solutions typically address challenges through fragmented tools that focus on isolated use cases.[cite: 1] These systems often depend heavily on cloud infrastructure, create privacy concerns, and fail to provide unified decision intelligence.[cite: 1]</p>
-        <p><strong>The Solution:</strong> NeuroTej AI addresses these limitations through a comprehensive, privacy-first Edge Intelligence Framework capable of processing visual data locally while delivering real-time analytical insights to decision-makers.[cite: 1]</p>
-    </section>
+        <!-- Core Features Section -->
+        <section>
+            <h2>Core Pillars</h2>
+            <div class="grid-2">
+                <div class="feature-card glass-panel">
+                    <h3 style="color: var(--primary-purple);">Privacy First</h3>
+                    <p>Raw visual data is processed locally at the edge, drastically minimizing security vulnerabilities and unnecessary cloud exposure.</p>
+                </div>
+                <div class="feature-card glass-panel">
+                    <h3 style="color: var(--primary-purple);">Edge Architecture</h3>
+                    <p>AI workloads are executed on dedicated edge hardware, significantly reducing bandwidth consumption and ensuring ultra-low latency.</p>
+                </div>
+                <div class="feature-card glass-panel">
+                    <h3 style="color: var(--primary-purple);">Unified Analytics</h3>
+                    <p>Multiple environments are analyzed through a single, common intelligence framework for scalable deployment.</p>
+                </div>
+                <div class="feature-card glass-panel">
+                    <h3 style="color: var(--primary-purple);">Explainable Intelligence</h3>
+                    <p>Focuses on generating interpretable, actionable insights rather than opaque, black-box scores.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
 
     <!-- Footer Section -->
     <footer>
-        <div class="contact-details">
-            <p><strong>Contact Details</strong></p>
-            <p>Website: <a href="https://www.neurotej.com">neurotej.com</a>[cite: 1]</p>
-            <p>Founder: <a href="mailto:founder@neurotej.com">founder@neurotej.com</a>[cite: 1]</p>
-            <p>Business: <a href="mailto:info@neurotej.com">info@neurotej.com</a>[cite: 1]</p>
-            <p>Partnerships: <a href="mailto:contact@neurotej.com">contact@neurotej.com</a>[cite: 1]</p>
+        <div class="contact-links">
+            <a href="https://www.neurotej.com">neurotej.com</a> | 
+            <a href="mailto:founder@neurotej.com">founder@neurotej.com</a> | 
+            <a href="mailto:info@neurotej.com">info@neurotej.com</a> | 
+            <a href="mailto:contact@neurotej.com">contact@neurotej.com</a>
         </div>
-        <p class="copyright">&copy; 2026 NeuroTej AI. All Rights Reserved.[cite: 1]</p>
+        <p class="copyright">&copy; 2026 NeuroTej AI. All Rights Reserved.</p>
     </footer>
 
 </body>
