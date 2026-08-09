@@ -59,8 +59,13 @@
         }
 
         .nav-logo img {
-            height: 40px;
-            filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.5));
+            height: 35px;
+            filter: drop-shadow(0 0 8px rgba(0, 210, 255, 0.5));
+            transition: transform 0.3s ease;
+        }
+
+        .nav-logo:hover img {
+            transform: scale(1.1);
         }
 
         .nav-logo span {
@@ -80,9 +85,9 @@
             color: var(--text-muted);
             text-decoration: none;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.95rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             position: relative;
             padding-bottom: 5px;
             transition: color 0.3s ease;
@@ -112,22 +117,24 @@
         .glass-panel {
             background: var(--card-bg);
             backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 16px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             padding: 40px;
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .glass-panel:hover {
-            transform: translateY(-5px);
-            border-color: rgba(0, 210, 255, 0.3);
+            transform: translateY(-8px);
+            border-color: rgba(0, 210, 255, 0.4);
+            box-shadow: 0 15px 40px rgba(0, 210, 255, 0.2);
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 20px 20px 60px;
         }
 
         h2.section-title {
@@ -145,23 +152,40 @@
         /* --- HERO HEADER --- */
         header {
             text-align: center;
-            padding: 60px 20px;
+            padding: 40px 20px 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
+        /* Fixed and animated hero logo */
+        .hero-logo {
+            max-width: 160px; /* Constrains the massive size */
+            margin-bottom: 15px;
+            animation: breathe 4s infinite alternate;
+        }
+
+        @keyframes breathe {
+            0% { filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.3)); transform: scale(1); }
+            100% { filter: drop-shadow(0 0 30px rgba(159, 122, 234, 0.6)); transform: scale(1.03); }
+        }
+
         header h1 {
             font-size: 4rem;
             font-weight: 800;
-            margin: 0 0 20px 0;
+            margin: 0 0 15px 0;
             background: linear-gradient(90deg, var(--primary-cyan) 0%, var(--primary-purple) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
         }
 
         header p {
             color: var(--text-muted);
-            font-size: 1.3rem;
-            max-width: 800px;
+            font-size: 1.25rem;
+            max-width: 750px;
             margin: 0 auto;
+            font-weight: 300;
         }
 
         /* --- VISION SECTION --- */
@@ -176,13 +200,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             text-align: center;
         }
 
         .architecture-card img {
             width: 100%;
-            max-width: 900px;
+            max-width: 850px;
             border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
@@ -196,7 +220,7 @@
         }
 
         .architecture-card p.summary {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: var(--text-muted);
             max-width: 800px;
             margin-bottom: 25px;
@@ -212,16 +236,23 @@
         }
 
         .smart-bullets li {
-            background: rgba(0, 210, 255, 0.1);
-            border: 1px solid rgba(0, 210, 255, 0.3);
-            padding: 10px 20px;
+            background: rgba(0, 210, 255, 0.08);
+            border: 1px solid rgba(0, 210, 255, 0.2);
+            padding: 10px 22px;
             border-radius: 30px;
             color: #ffffff;
             font-weight: 600;
             font-size: 0.95rem;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .smart-bullets li:hover {
+            background: rgba(0, 210, 255, 0.2);
+            border-color: var(--primary-cyan);
+            transform: translateY(-3px);
         }
 
         .smart-bullets li i {
@@ -243,9 +274,9 @@
 
         .founder-hub h4 {
             color: var(--primary-purple);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             margin: 0 0 25px 0;
         }
 
@@ -265,10 +296,16 @@
         }
 
         .contact-item {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.03);
             padding: 15px 25px;
             border-radius: 8px;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            border-color: var(--primary-purple);
+            background: rgba(159, 122, 234, 0.1);
         }
 
         .contact-item span {
@@ -277,6 +314,7 @@
             font-size: 0.85rem;
             text-transform: uppercase;
             margin-bottom: 5px;
+            letter-spacing: 1px;
         }
 
         .contact-item a {
@@ -305,19 +343,19 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 50px;
-            height: 50px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.05);
             color: var(--text-muted);
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .social-apps a:hover {
-            transform: translateY(-8px) scale(1.1);
+            transform: translateY(-8px) scale(1.15);
             color: #ffffff;
             border-color: var(--primary-cyan);
             box-shadow: 0 10px 20px rgba(0, 210, 255, 0.4);
@@ -328,15 +366,16 @@
             text-align: center;
             padding: 40px;
             color: #4a5568;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             nav { padding: 0 20px; }
             .nav-links { display: none; } /* Hide links on small mobile to save space */
-            header h1 { font-size: 2.5rem; }
+            header h1 { font-size: 2.8rem; }
             .smart-bullets { flex-direction: column; align-items: center; }
+            .hero-logo { max-width: 120px; }
         }
     </style>
 </head>
@@ -357,7 +396,8 @@
 
     <!-- HEADER / HERO -->
     <header id="home">
-        <img src="ChatGPT Image Aug 3, 2026, 05_53_14 AM.png" alt="NeuroTej AI Logo" onerror="this.style.display='none'">
+        <!-- Added hero-logo class here to control the size perfectly -->
+        <img src="ChatGPT Image Aug 3, 2026, 05_53_14 AM.png" alt="NeuroTej AI Logo" class="hero-logo" onerror="this.style.display='none'">
         <h1>NeuroTej AI</h1>
         <p>A Privacy-Preserving Edge Intelligence Platform for Real-Time Behavioral Analytics Across Educational, Examination, and Professional Assessment Environments.</p>
     </header>
