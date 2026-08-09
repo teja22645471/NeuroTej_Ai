@@ -59,8 +59,8 @@
         }
 
         .nav-logo img {
-            height: 35px;
-            filter: drop-shadow(0 0 8px rgba(0, 210, 255, 0.5));
+            height: 40px;
+            filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.5));
             transition: transform 0.3s ease;
         }
 
@@ -152,22 +152,22 @@
         /* --- HERO HEADER --- */
         header {
             text-align: center;
-            padding: 40px 20px 60px;
+            padding: 60px 20px 80px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
         
-        /* Fixed and animated hero logo */
         .hero-logo {
-            max-width: 160px; /* Constrains the massive size */
-            margin-bottom: 15px;
+            height: 110px; /* Perfectly sized to fit with the text */
+            width: auto;
+            margin-bottom: 20px;
             animation: breathe 4s infinite alternate;
         }
 
         @keyframes breathe {
             0% { filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.3)); transform: scale(1); }
-            100% { filter: drop-shadow(0 0 30px rgba(159, 122, 234, 0.6)); transform: scale(1.03); }
+            100% { filter: drop-shadow(0 0 30px rgba(159, 122, 234, 0.6)); transform: scale(1.05); }
         }
 
         header h1 {
@@ -183,7 +183,7 @@
         header p {
             color: var(--text-muted);
             font-size: 1.25rem;
-            max-width: 750px;
+            max-width: 800px;
             margin: 0 auto;
             font-weight: 300;
         }
@@ -193,6 +193,44 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+        }
+
+        .vision-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .vision-list li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            color: #e2e8f0;
+        }
+
+        .vision-list li i {
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: var(--primary-cyan);
+            font-size: 1.2rem;
+        }
+
+        .problem-title {
+            color: #ff4d4d; 
+            border-bottom: 1px solid rgba(255,77,77,0.3); 
+            padding-bottom: 10px;
+            font-size: 1.8rem;
+            margin-top: 0;
+        }
+
+        .solution-title {
+            color: var(--primary-cyan); 
+            border-bottom: 1px solid rgba(0,210,255,0.3); 
+            padding-bottom: 10px;
+            font-size: 1.8rem;
+            margin-top: 0;
         }
 
         /* --- ARCHITECTURE SECTION --- */
@@ -206,7 +244,7 @@
 
         .architecture-card img {
             width: 100%;
-            max-width: 850px;
+            max-width: 900px;
             border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
@@ -220,7 +258,7 @@
         }
 
         .architecture-card p.summary {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             color: var(--text-muted);
             max-width: 800px;
             margin-bottom: 25px;
@@ -274,9 +312,9 @@
 
         .founder-hub h4 {
             color: var(--primary-purple);
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             margin: 0 0 25px 0;
         }
 
@@ -372,10 +410,9 @@
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             nav { padding: 0 20px; }
-            .nav-links { display: none; } /* Hide links on small mobile to save space */
+            .nav-links { display: none; }
             header h1 { font-size: 2.8rem; }
             .smart-bullets { flex-direction: column; align-items: center; }
-            .hero-logo { max-width: 120px; }
         }
     </style>
 </head>
@@ -396,7 +433,7 @@
 
     <!-- HEADER / HERO -->
     <header id="home">
-        <!-- Added hero-logo class here to control the size perfectly -->
+        <!-- Perfectly sized, gently breathing logo -->
         <img src="ChatGPT Image Aug 3, 2026, 05_53_14 AM.png" alt="NeuroTej AI Logo" class="hero-logo" onerror="this.style.display='none'">
         <h1>NeuroTej AI</h1>
         <p>A Privacy-Preserving Edge Intelligence Platform for Real-Time Behavioral Analytics Across Educational, Examination, and Professional Assessment Environments.</p>
@@ -409,12 +446,22 @@
             <h2 class="section-title">The <span>Vision</span></h2>
             <div class="grid-2">
                 <div class="glass-panel">
-                    <h3 style="color: #ff4d4d; border-bottom: 1px solid rgba(255,77,77,0.3); padding-bottom: 10px;">The Problem</h3>
-                    <p style="color: #e2e8f0;">Existing solutions rely heavily on cloud infrastructure, creating severe privacy risks, massive bandwidth costs, and subjective, biased grading. Fragmented systems fail to provide unified decision intelligence.</p>
+                    <h3 class="problem-title">The Challenge</h3>
+                    <p style="color: #e2e8f0;">Existing solutions rely heavily on cloud infrastructure, creating major vulnerabilities. Organizations struggle with:</p>
+                    <ul class="vision-list">
+                        <li><i class="fa-solid fa-cloud-arrow-up"></i> <strong>Bandwidth Overload:</strong> Transmitting continuous raw video to the cloud is costly and slow.</li>
+                        <li><i class="fa-solid fa-lock-open"></i> <strong>Privacy Risks:</strong> Storing sensitive student and candidate visual data externally creates severe compliance risks.</li>
+                        <li><i class="fa-solid fa-puzzle-piece"></i> <strong>Fragmented Systems:</strong> Organizations use disconnected, isolated tools rather than a unified intelligence system.</li>
+                    </ul>
                 </div>
                 <div class="glass-panel">
-                    <h3 style="color: var(--primary-cyan); border-bottom: 1px solid rgba(0,210,255,0.3); padding-bottom: 10px;">Our Solution</h3>
-                    <p style="color: #e2e8f0;">NeuroTej AI processes raw visual data locally at the edge. We deliver real-time, objective analytical insights directly to decision-makers with zero video retention and zero cloud exposure.</p>
+                    <h3 class="solution-title">Our Solution</h3>
+                    <p style="color: #e2e8f0;">NeuroTej AI transforms live visual data into real-time engagement and behavioral intelligence through edge-first processing.</p>
+                    <ul class="vision-list">
+                        <li><i class="fa-solid fa-microchip"></i> <strong>100% Local Processing:</strong> Raw video remains at the edge and never leaves the room.</li>
+                        <li><i class="fa-solid fa-shield-halved"></i> <strong>Zero Data Retention:</strong> Video is discarded instantly; only secure encrypted metadata is transmitted.</li>
+                        <li><i class="fa-solid fa-chart-line"></i> <strong>Real-Time Insights:</strong> Delivers instant, actionable metrics directly to a centralized decision dashboard.</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -428,23 +475,23 @@
             <!-- 1. Smart Classroom -->
             <div class="architecture-card glass-panel">
                 <img src="IMG_20260807_191034.png" alt="Smart Classroom Architecture">
-                <h3>1. Smart Classroom</h3>
+                <h3>1. Smart Classroom Analytics</h3>
                 <p class="summary">Delivers instant engagement tracking and instructor effectiveness metrics directly to educators without exposing student data to the cloud.</p>
                 <ul class="smart-bullets">
+                    <li><i class="fa-solid fa-shield-halved"></i> Privacy Preserved (Zero Cloud Video)</li>
                     <li><i class="fa-solid fa-bolt"></i> Real-Time Attention Scoring</li>
                     <li><i class="fa-solid fa-microchip"></i> Local Edge Processing</li>
-                    <li><i class="fa-solid fa-shield-halved"></i> Zero Cloud Video Storage</li>
                 </ul>
             </div>
 
             <!-- 2. Exam Guard -->
             <div class="architecture-card glass-panel">
                 <img src="IMG_20260807_191134.png" alt="Exam Guard Architecture">
-                <h3>2. ExamGuard</h3>
+                <h3>2. Virtual Exam Intelligence</h3>
                 <p class="summary">Ensures absolute assessment integrity through high-precision tracking and behavioral risk analytics operating entirely on local hardware.</p>
                 <ul class="smart-bullets">
+                    <li><i class="fa-solid fa-shield-halved"></i> Privacy Preserved (Secure Local Analysis)</li>
                     <li><i class="fa-solid fa-eye"></i> Precision Gaze Tracking</li>
-                    <li><i class="fa-solid fa-triangle-exclamation"></i> Suspicious Activity Alerts</li>
                     <li><i class="fa-solid fa-check-double"></i> Automated Integrity Scoring</li>
                 </ul>
             </div>
@@ -452,11 +499,11 @@
             <!-- 3. Interview Analysis -->
             <div class="architecture-card glass-panel">
                 <img src="IMG_20260807_191108.png" alt="Interview Analysis Architecture">
-                <h3>3. Interview Analysis</h3>
+                <h3>3. Virtual Interview Intelligence</h3>
                 <p class="summary">Provides objective, data-driven hiring intelligence by evaluating candidate communication, sentiment, and confidence without human bias.</p>
                 <ul class="smart-bullets">
-                    <li><i class="fa-solid fa-face-smile"></i> Sentiment Evaluation</li>
-                    <li><i class="fa-solid fa-microphone-lines"></i> Communication Analytics</li>
+                    <li><i class="fa-solid fa-shield-halved"></i> Privacy Preserved (Secure Processing)</li>
+                    <li><i class="fa-solid fa-face-smile"></i> Sentiment & Emotion Evaluation</li>
                     <li><i class="fa-solid fa-scale-balanced"></i> Unbiased Candidate Grading</li>
                 </ul>
             </div>
@@ -471,7 +518,7 @@
                 <h4>Founder & CEO</h4>
                 
                 <p class="founder-bio">
-                    Founder of NeuroTej AI, an Edge Intelligence startup focused on privacy-preserving behavioral analytics. My vision is to build a global AI platform that helps institutions understand engagement, performance, and communication effectiveness ethically and securely.
+                    I am the founder of NeuroTej AI, an Edge Intelligence startup focused on privacy-preserving behavioral analytics for educational institutions, examinations, and professional assessment environments. My vision is to build a global AI platform that helps institutions understand engagement, performance, and communication effectiveness without compromising user privacy.
                 </p>
 
                 <!-- Professional Emails -->
