@@ -1,1 +1,1 @@
-# NeuroTej_Ai
+# NeuroTej_Ai - A Privacy-Preserving Edge Intelligence Platform for Real-Time Behavioral Analytics Across Educational, Examination, and Professional Assessment Environments.
