@@ -96,9 +96,9 @@ NeuroTej Interview Intelligence
  Behavioral Evaluation 
  Candidate Performance Reports 
 
-### NeuroTej AI
-### Intelligent Insights. Privacy Preserved.
-### Website: neurotej.com
-### Founder: founder@neurotej.com
-### Business: info@neurotej.com
-### Partnerships: contact@neurotej.com
+NeuroTej AI
+Intelligent Insights. Privacy Preserved.
+Website: neurotej.com
+Founder: founder@neurotej.com
+Business: info@neurotej.com
+Partnerships: contact@neurotej.com
