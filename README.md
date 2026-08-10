@@ -26,7 +26,7 @@ analytical outputs and intelligence metrics are transmitted to centralized dashb
 approach significantly reduces bandwidth consumption, enhances security, minimizes privacy 
 risks, and improves deployment scalability.
 
-#Industry Challenge
+# Industry Challenge
 Organizations increasingly rely on digital and hybrid environments to conduct learning, 
 assessments, recruitment, and training activities. However, decision-makers often lack 
 objective, real-time intelligence regarding participant engagement, behavioral patterns, 
@@ -41,7 +41,7 @@ Current challenges include:
 These challenges create operational inefficiencies and limit the ability of institutions and 
 organizations to make evidence-based decisions. © 2026 NeuroTej AI. All Rights Reserved.
 
-#The NeuroTej AI Solution
+# The NeuroTej AI Solution
 NeuroTej AI introduces a unified Behavioral Intelligence Platform that converts camera feeds 
 into meaningful operational intelligence through advanced Edge AI processing.
 The platform is designed to analyze multiple behavioral indicators simultaneously, including:
@@ -96,9 +96,9 @@ NeuroTej Interview Intelligence
  Behavioral Evaluation 
  Candidate Performance Reports 
 
-## NeuroTej AI
-## Intelligent Insights. Privacy Preserved.
-Website: neurotej.com
-Founder: founder@neurotej.com
-Business: info@neurotej.com
-Partnerships: contact@neurotej.com
+### NeuroTej AI
+### Intelligent Insights. Privacy Preserved.
+### Website: neurotej.com
+### Founder: founder@neurotej.com
+### Business: info@neurotej.com
+### Partnerships: contact@neurotej.com
