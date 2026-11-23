@@ -8,6 +8,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NeuroTej AI | Privacy-Preserving Edge Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
@@ -50,6 +53,10 @@
         /* =====================================================================
            LOCKED-IN STARLIGHT BOREALIS CURTAINS BACKGROUND LAYER
            ===================================================================== */
+        h1, h2, h3, .brand-text {
+            font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
         #bg-canvas {
             position: fixed;
             top: 0;
@@ -58,11 +65,40 @@
             height: 100%;
             z-index: 0;
             pointer-events: none;
+            opacity: 0.68;
+        }
+
+        .bg-vignette {
+            position: fixed;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            background: radial-gradient(circle at 50% 25%, rgba(3, 3, 7, 0.15) 0%, rgba(3, 3, 7, 0.62) 72%, rgba(3, 3, 7, 0.86) 100%);
         }
 
         .page-content {
             position: relative;
             z-index: 2;
+        }
+
+        /* Subtle Scroll-Reveal Motion */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal-on-scroll {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
         }
 
         /* Prevent any grid/flex child from overflowing on mobile phones */
@@ -255,59 +291,37 @@
             align-items: center;
         }
 
-        .hero-brand-lockup {
+        .hero-pill-badge {
             display: inline-flex;
             align-items: center;
-            gap: 18px;
-            margin-bottom: 24px;
-            padding: 14px 24px 14px 16px;
-            background: rgba(255, 255, 255, 0.035);
-            border: 1px solid rgba(161, 0, 255, 0.38);
-            border-radius: 16px;
-            box-shadow: 0 14px 36px rgba(0, 0, 0, 0.5);
+            gap: 10px;
+            margin-bottom: 22px;
+            padding: 8px 16px;
+            background: rgba(161, 0, 255, 0.12);
+            border: 1px solid rgba(161, 0, 255, 0.42);
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            color: #e9c2ff;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
         }
 
-        .hero-logo {
-            height: 68px;
-            width: auto;
-            object-fit: contain;
-            border-radius: 12px;
-            filter: drop-shadow(0 0 18px rgba(161, 0, 255, 0.6));
-            transition: transform 0.35s ease;
-        }
-
-        .hero-brand-title {
-            font-size: clamp(1.75rem, 2.4vw, 2.15rem);
-            font-weight: 900;
-            letter-spacing: -0.7px;
-            line-height: 1.08;
-            color: var(--text-white);
-        }
-
-        .hero-brand-title span {
-            background: linear-gradient(95deg, #df9fff 0%, #00d2ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-brand-subtitle {
-            font-size: 0.92rem;
-            color: var(--accent-cyan);
-            font-weight: 600;
-            margin-top: 3px;
-            letter-spacing: 0.2px;
-        }
-
-        .hero-brand-lockup:hover .hero-logo {
-            transform: scale(1.06) rotate(-2deg);
+        .hero-pill-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-cyan);
+            box-shadow: 0 0 10px var(--accent-cyan);
+            flex-shrink: 0;
         }
 
         /* Single-Line Headline Across Desktop, Tablet & Phone */
         .hero-headline {
-            font-size: clamp(1.35rem, 2.35vw, 2.35rem);
-            font-weight: 900;
-            line-height: 1.15;
-            letter-spacing: -0.8px;
+            font-size: clamp(1.45rem, 2.65vw, 2.65rem);
+            font-weight: 800;
+            line-height: 1.14;
+            letter-spacing: -0.9px;
             margin: 0 0 18px 0;
             color: var(--text-white);
             white-space: nowrap;
@@ -1006,19 +1020,6 @@
             border: 1px solid rgba(161, 0, 255, 0.25);
         }
 
-        .arch-image-toolbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 14px;
-            padding-top: 12px;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
         /* Detailed 4-Stage Interactive Edge Processing Pipeline */
         .pipeline-header {
             display: flex;
@@ -1472,19 +1473,23 @@
             justify-content: space-between;
             overflow: hidden;
             cursor: pointer;
-            background: linear-gradient(150deg, rgba(27, 8, 48, 0.92) 0%, rgba(52, 8, 92, 0.88) 55%, rgba(92, 12, 158, 0.85) 100%);
+            background: linear-gradient(160deg, rgba(16, 14, 28, 0.88) 0%, rgba(9, 9, 16, 0.95) 100%);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
             color: var(--text-white);
-            border: 1px solid rgba(161, 0, 255, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-top: 3px solid var(--accent-purple-bright);
-            box-shadow: 0 14px 36px rgba(0, 0, 0, 0.55);
-            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+            box-shadow: 0 14px 36px rgba(0, 0, 0, 0.52);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease;
             text-decoration: none;
         }
 
         .editorial-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--accent-cyan);
-            box-shadow: 0 22px 50px rgba(161, 0, 255, 0.35);
+            transform: translateY(-6px);
+            background: linear-gradient(160deg, rgba(26, 16, 46, 0.92) 0%, rgba(11, 11, 20, 0.97) 100%);
+            border-color: rgba(0, 210, 255, 0.55);
+            border-top-color: var(--accent-cyan);
+            box-shadow: 0 22px 48px rgba(0, 210, 255, 0.14), 0 0 28px rgba(161, 0, 255, 0.22);
         }
 
         .card-eyebrow {
@@ -1984,13 +1989,6 @@
             header.hero-section {
                 padding: 82px 16px 28px;
             }
-            .hero-brand-lockup {
-                padding: 12px 18px 12px 14px;
-                gap: 14px;
-            }
-            .hero-logo {
-                height: 56px;
-            }
             .hero-thesis-column {
                 padding-left: 0;
                 border-left: none;
@@ -2078,6 +2076,7 @@
 
     <!-- LOCKED-IN STARLIGHT BOREALIS CURTAINS BACKGROUND ANIMATION -->
     <canvas id="bg-canvas"></canvas>
+    <div class="bg-vignette" aria-hidden="true"></div>
 
     <div class="page-content">
 
@@ -2120,15 +2119,9 @@
         <header id="home" class="hero-section">
             <div class="hero-main-grid">
                 <div>
-                    <div class="hero-brand-lockup">
-                        <img id="hero-logo-img"
-                             class="hero-logo"
-                             alt="NeuroTej AI Logo"
-                             src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cdefs%3E%3ClinearGradient id='g2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23a100ff'/%3E%3Cstop offset='100%25' stop-color='%2300d2ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='120' height='120' rx='24' fill='%230b0b14' stroke='url(%23g2)' stroke-width='6'/%3E%3Cpath d='M32 86V34l28 36V34h28' fill='none' stroke='url(%23g2)' stroke-width='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='88' cy='78' r='8' fill='%23a100ff'/%3E%3C/svg%3E">
-                        <div>
-                            <div class="hero-brand-title">NeuroTej <span>AI</span></div>
-                            <div class="hero-brand-subtitle">Privacy-First Edge Intelligence</div>
-                        </div>
+                    <div class="hero-pill-badge">
+                        <span class="hero-pill-dot"></span>
+                        <span>Privacy-First Edge Intelligence</span>
                     </div>
 
                     <!-- SINGLE-LINE HEADLINE ("Zero Cloud Exposure" removed) -->
@@ -2401,16 +2394,6 @@
                     <img id="classroom-arch-img"
                          alt="Smart Classroom Architecture"
                          src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 540'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2307070c'/%3E%3Cstop offset='50%25' stop-color='%23120924'/%3E%3Cstop offset='100%25' stop-color='%23050811'/%3E%3C/linearGradient%3E%3ClinearGradient id='ac' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%23a100ff'/%3E%3Cstop offset='100%25' stop-color='%2300d2ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1200' height='540' fill='url(%23bg)'/%3E%3Cg stroke='rgba(255,255,255,0.05)' stroke-width='1'%3E%3Cline x1='0' y1='90' x2='1200' y2='90'/%3E%3Cline x1='0' y1='180' x2='1200' y2='180'/%3E%3Cline x1='0' y1='270' x2='1200' y2='270'/%3E%3Cline x1='0' y1='360' x2='1200' y2='360'/%3E%3Cline x1='0' y1='450' x2='1200' y2='450'/%3E%3Cline x1='240' y1='0' x2='240' y2='540'/%3E%3Cline x1='480' y1='0' x2='480' y2='540'/%3E%3Cline x1='720' y1='0' x2='720' y2='540'/%3E%3Cline x1='960' y1='0' x2='960' y2='540'/%3E%3C/g%3E%3Ctext x='60' y='58' fill='%23a100ff' font-family='sans-serif' font-size='15' font-weight='800' letter-spacing='3'%3ENEUROTEJ AI &bull; SMART CLASSROOM EDGE ARCHITECTURE%3C/text%3E%3Crect x='60' y='115' width='230' height='310' rx='6' fill='%2311111a' stroke='%23a100ff' stroke-width='2'/%3E%3Ctext x='85' y='160' fill='%23ffffff' font-family='sans-serif' font-size='18' font-weight='800'%3E1. CLASSROOM INPUT%3C/text%3E%3Ctext x='85' y='200' fill='%23a1a1aa' font-family='sans-serif' font-size='14'%3E&bull; Multi-Angle 4K/30fps Feeds%3C/text%3E%3Ctext x='85' y='235' fill='%23a1a1aa' font-family='sans-serif' font-size='14'%3E&bull; RTSP over Managed PoE VLAN%3C/text%3E%3Ctext x='85' y='270' fill='%23a1a1aa' font-family='sans-serif' font-size='14'%3E&bull; Common Timestamp Alignment%3C/text%3E%3Crect x='85' y='330' width='180' height='58' rx='4' fill='rgba(161,0,255,0.15)' stroke='%23a100ff'/%3E%3Ctext x='102' y='364' fill='%23e5b8ff' font-family='sans-serif' font-size='13' font-weight='700'%3ELocal LAN Capture Only%3C/text%3E%3Cpath d='M290 270 L355 270' stroke='url(%23ac)' stroke-width='4'/%3E%3Cpolygon points='355,262 372,270 355,278' fill='%23a100ff'/%3E%3Crect x='375' y='115' width='260' height='310' rx='6' fill='%23150d26' stroke='url(%23ac)' stroke-width='2.5'/%3E%3Ctext x='400' y='160' fill='%23ffffff' font-family='sans-serif' font-size='18' font-weight='800'%3E2. LOCAL EDGE AI NODE%3C/text%3E%3Ctext x='400' y='200' fill='%23d4d4d8' font-family='sans-serif' font-size='14'%3E&bull; Head Pose &amp; Eye Gaze Ratio%3C/text%3E%3Ctext x='400' y='235' fill='%23d4d4d8' font-family='sans-serif' font-size='14'%3E&bull; Cross-Camera Student Match%3C/text%3E%3Ctext x='400' y='270' fill='%23d4d4d8' font-family='sans-serif' font-size='14'%3E&bull; Phone &amp; Object Detection%3C/text%3E%3Crect x='400' y='320' width='210' height='72' rx='4' fill='rgba(0,210,255,0.12)' stroke='%2300d2ff'/%3E%3Ctext x='418' y='350' fill='%2300d2ff' font-family='sans-serif' font-size='13' font-weight='800'%3EZERO DATA RETENTION%3C/text%3E%3Ctext x='418' y='372' fill='%23ffffff' font-family='sans-serif' font-size='12'%3EVector Metadata Only &bull; 0 GB Video%3C/text%3E%3Cpath d='M635 270 L700 270' stroke='url(%23ac)' stroke-width='4'/%3E%3Cpolygon points='700,262 717,270 700,278' fill='%2300d2ff'/%3E%3Crect x='720' y='115' width='420' height='310' rx='6' fill='%2311111a' stroke='%2300d2ff' stroke-width='2'/%3E%3Ctext x='750' y='160' fill='%23ffffff' font-family='sans-serif' font-size='18' font-weight='800'%3E3. EDUCATOR DECISION DASHBOARD%3C/text%3E%3Crect x='750' y='185' width='170' height='95' rx='4' fill='%23191926' stroke='rgba(255,255,255,0.12)'/%3E%3Ctext x='768' y='215' fill='%23a100ff' font-family='sans-serif' font-size='13' font-weight='800'%3ECLASS ACCURACY%3C/text%3E%3Ctext x='768' y='242' fill='%23ffffff' font-family='sans-serif' font-size='13'%3ESeating Heatmaps%3C/text%3E%3Ctext x='768' y='262' fill='%23a1a1aa' font-family='sans-serif' font-size='12'%3EPhone &amp; Gaze Alerts%3C/text%3E%3Crect x='940' y='185' width='170' height='95' rx='4' fill='%23191926' stroke='rgba(255,255,255,0.12)'/%3E%3Ctext x='958' y='215' fill='%2300d2ff' font-family='sans-serif' font-size='13' font-weight='800'%3EPER-STUDENT AI%3C/text%3E%3Ctext x='958' y='242' fill='%23ffffff' font-family='sans-serif' font-size='13'%3EIndividual Gaze Index%3C/text%3E%3Ctext x='958' y='262' fill='%23a1a1aa' font-family='sans-serif' font-size='12'%3EVector ID Tracking%3C/text%3E%3Crect x='750' y='300' width='360' height='92' rx='4' fill='rgba(161,0,255,0.12)' stroke='%23a100ff'/%3E%3Ctext x='770' y='334' fill='%23ffffff' font-family='sans-serif' font-size='15' font-weight='700'%3EmTLS Signed Telemetry &amp; Historical Trends%3C/text%3E%3Ctext x='770' y='362' fill='%23d4d4d8' font-family='sans-serif' font-size='13'%3E100%25 Compliant &bull; Encrypted JSON Metadata Stream Only%3C/text%3E%3C/svg%3E">
-
-                    <div class="arch-image-toolbar">
-                        <span>Target Image File: <code style="color: #e5b8ff;">IMG_20260807_191034.png</code> (Auto-loads on your server)</span>
-                        <div>
-                            <label for="preview-arch-upload" style="cursor: pointer; color: #df9fff; font-weight: 700;">
-                                &#8682; Preview Your Local Image File Now
-                            </label>
-                            <input type="file" id="preview-arch-upload" accept="image/*" style="display: none;">
-                        </div>
-                    </div>
                 </div>
 
                 <!-- DETAILED 4-STAGE EDGE PROCESSING PIPELINE -->
@@ -2974,17 +2957,13 @@
             <p style="color: #d4d4d8; font-size: 0.98rem; margin-bottom: 20px;">
                 NeuroTej AI delivers 100% local, privacy-preserving behavioral analytics at the classroom edge—eliminating cloud video streaming costs and compliance risks while equipping educators with real-time attention scoring, engagement heatmaps, automated attendance, and instructor effectiveness metrics.
             </p>
-            <div style="background: rgba(161, 0, 255, 0.1); border: 1px solid rgba(161, 0, 255, 0.35); border-radius: 8px; padding: 16px; margin-bottom: 24px; font-size: 0.9rem; color: #e4e4e7;">
-                <strong>Server PDF Target:</strong> <code>NeuroTej AI-1.pdf</code><br>
-                When hosted on your server alongside <code>NeuroTej AI-1.pdf</code>, clicking below opens your PDF document directly in a new tab.
-            </div>
             <div style="display: flex; gap: 14px; flex-wrap: wrap;">
                 <button type="button" class="pdf-cta-btn" id="open-raw-pdf-btn">
-                    <span>Open NeuroTej AI-1.pdf</span>
+                    <span>Open Business Overview PDF</span>
                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </button>
                 <button type="button" class="copy-email-btn" id="modal-dismiss-btn" style="padding: 12px 20px;">
-                    Close Preview
+                    Close
                 </button>
             </div>
         </div>
@@ -3016,7 +2995,7 @@
             probe.src = filename;
         }
 
-        tryLoadLocalAsset(ASSET_FILES.logo, ["nav-logo-img", "hero-logo-img"]);
+        tryLoadLocalAsset(ASSET_FILES.logo, ["nav-logo-img"]);
         tryLoadLocalAsset(ASSET_FILES.classroomArchitecture, ["classroom-arch-img"]);
 
         /* =====================================================================
@@ -3499,19 +3478,34 @@
             showToast("Campus pilot request ready for " + org);
         });
 
-        // Local Image Uploader Preview
-        const uploadInput = document.getElementById("preview-arch-upload");
-        const archImg = document.getElementById("classroom-arch-img");
-        uploadInput.addEventListener("change", function (e) {
-            const file = e.target.files && e.target.files[0];
-            if (!file) return;
-            const reader = new FileReader();
-            reader.onload = function (ev) {
-                archImg.src = ev.target.result;
-                showToast("Loaded local preview: " + file.name);
-            };
-            reader.readAsDataURL(file);
-        });
+        // Subtle Scroll-Reveal Animations
+        (function initScrollReveal() {
+            const revealTargets = document.querySelectorAll(
+                ".section-wrap .section-header-row, .vision-panel, .step-card, .edge-console-card, .trust-bar, .architecture-showcase, .dashboard-shell, .editorial-card, .pilot-card, .founder-hub"
+            );
+            revealTargets.forEach(function (el) {
+                el.classList.add("reveal-on-scroll");
+            });
+
+            if ("IntersectionObserver" in window) {
+                const observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("is-visible");
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.08, rootMargin: "0px 0px -30px 0px" });
+
+                revealTargets.forEach(function (el) {
+                    observer.observe(el);
+                });
+            } else {
+                revealTargets.forEach(function (el) {
+                    el.classList.add("is-visible");
+                });
+            }
+        })();
 
         // Copy Email Buttons
         const copyBtns = document.querySelectorAll("[data-copy-email]");
