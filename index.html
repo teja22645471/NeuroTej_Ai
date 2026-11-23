@@ -389,6 +389,9 @@
             padding-left: 34px;
             border-left: 1px solid rgba(255, 255, 255, 0.14);
             position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .thesis-accent-bar {
@@ -427,79 +430,7 @@
             font-size: 0.96rem;
             line-height: 1.68;
             color: #d4d4d8;
-            margin: 0 0 20px 0;
-        }
-
-        .inquiry-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .inquiry-item {
-            background: rgba(255, 255, 255, 0.025);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-left: 3px solid rgba(161, 0, 255, 0.45);
-            border-radius: 8px;
-            padding: 12px 15px;
-            cursor: pointer;
-            transition: all 0.25s ease;
-        }
-
-        .inquiry-item:hover,
-        .inquiry-item.active {
-            background: rgba(161, 0, 255, 0.11);
-            border-color: rgba(161, 0, 255, 0.42);
-            border-left-color: var(--accent-cyan);
-        }
-
-        .inquiry-q-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
-        }
-
-        .inquiry-q-text {
-            font-size: 0.89rem;
-            font-weight: 700;
-            color: var(--text-white);
-            display: flex;
-            align-items: center;
-            gap: 9px;
-        }
-
-        .inquiry-q-num {
-            font-size: 0.72rem;
-            font-weight: 800;
-            color: var(--accent-cyan);
-            letter-spacing: 0.8px;
-        }
-
-        .inquiry-toggle-icon {
-            font-size: 0.76rem;
-            color: #df9fff;
-            transition: transform 0.25s ease;
-            flex-shrink: 0;
-        }
-
-        .inquiry-item.active .inquiry-toggle-icon {
-            transform: rotate(180deg);
-            color: var(--accent-cyan);
-        }
-
-        .inquiry-answer {
-            display: none;
-            margin-top: 8px;
-            padding-top: 8px;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            font-size: 0.85rem;
-            line-height: 1.58;
-            color: #d4d4d8;
-        }
-
-        .inquiry-item.active .inquiry-answer {
-            display: block;
+            margin: 0;
         }
 
         /* =====================================================================
@@ -2231,47 +2162,6 @@
                     <p class="thesis-matter-copy">
                         For years, campuses faced an impossible trade-off: fly blind on student engagement or deploy invasive cloud video surveillance. NeuroTej AI eliminates that compromise—distilling live classroom dynamics into instant, zero-retention pedagogical intelligence strictly at the edge.
                     </p>
-
-                    <div class="inquiry-list" id="hero-inquiry-list">
-                        <div class="inquiry-item active">
-                            <div class="inquiry-q-row">
-                                <span class="inquiry-q-text">
-                                    <span class="inquiry-q-num">01</span>
-                                    Why does cloud video AI fail on campus?
-                                </span>
-                                <i class="fa-solid fa-chevron-down inquiry-toggle-icon"></i>
-                            </div>
-                            <div class="inquiry-answer">
-                                Streaming continuous 4K classroom feeds consumes up to 60 GB per room daily and creates permanent student biometric liability under DPDP, FERPA, and GDPR.
-                            </div>
-                        </div>
-
-                        <div class="inquiry-item">
-                            <div class="inquiry-q-row">
-                                <span class="inquiry-q-text">
-                                    <span class="inquiry-q-num">02</span>
-                                    How do you measure attention without storing video?
-                                </span>
-                                <i class="fa-solid fa-chevron-down inquiry-toggle-icon"></i>
-                            </div>
-                            <div class="inquiry-answer">
-                                Our on-premise edge node converts head pose and eye-gaze ratios into anonymous mathematical vectors in volatile RAM and purges every video frame in under 42 ms.
-                            </div>
-                        </div>
-
-                        <div class="inquiry-item">
-                            <div class="inquiry-q-row">
-                                <span class="inquiry-q-text">
-                                    <span class="inquiry-q-num">03</span>
-                                    What do educators and academic leaders receive?
-                                </span>
-                                <i class="fa-solid fa-chevron-down inquiry-toggle-icon"></i>
-                            </div>
-                            <div class="inquiry-answer">
-                                Only cryptographically signed JSON telemetry—powering live seating engagement heatmaps, class accuracy scores, automated attendance, and distraction alerts.
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </header>
@@ -3422,17 +3312,6 @@
                 toastEl.classList.remove("visible");
             }, 2800);
         }
-
-        // Hero Executive Questioning Accordion Interaction
-        const inquiryItems = document.querySelectorAll("#hero-inquiry-list .inquiry-item");
-        inquiryItems.forEach(function (item) {
-            item.addEventListener("click", function () {
-                inquiryItems.forEach(function (other) {
-                    other.classList.remove("active");
-                });
-                item.classList.add("active");
-            });
-        });
 
         // Smart Classroom Architecture Capability Spotlight
         const bulletCards = document.querySelectorAll(".smart-bullet-card");
